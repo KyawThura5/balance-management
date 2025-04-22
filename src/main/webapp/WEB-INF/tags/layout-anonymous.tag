@@ -21,7 +21,7 @@
 </svg>
 
 <h1>Balance Management</h1>
-<h3>Powered By Kyaw Thuya</h3>
+<h3>Powered By U Kyaw Thuya</h3>
 </div>
 <div class="formContainer d-flex align-items-center justify-content-center">
 <jsp:doBody></jsp:doBody>
