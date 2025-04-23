@@ -3,5 +3,5 @@
 <%@ taglib prefix="app" tagdir="/WEB-INF/tags" %>
 
 <app:layout-member title="HOME">
-<h1>Member Home</h1>
+<app:page-title title="Member Home"></app:page-title>
 </app:layout-member>

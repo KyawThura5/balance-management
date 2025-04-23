@@ -21,7 +21,7 @@
 <ul class="navbar-nav">
 
 <li class="nav-item">
-<a href="#" class="nav-link"><i class="bi-people"></i>Member Management</a>
+<a href="${root}/admin/member" class="nav-link ${title eq 'MEMBERS' ? 'active' : '' }"><i class="bi-people"></i>Members</a>
 </li>
 
 <li class="nav-item">
