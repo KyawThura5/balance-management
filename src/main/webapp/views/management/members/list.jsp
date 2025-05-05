@@ -12,6 +12,12 @@
 <option value="">
 Select All
 </option>
+<option value="">
+Active
+</option>
+<option value="">
+InActive
+</option>
 </select>
 </app:form-group>
 
@@ -58,7 +64,7 @@ Select All
 <td>2025-05-01</td>
 <td></td> 
 <td>
-<a href="" class="icon-link"><i class="bi-arrow-right"></i></a>
+<a href="${root}/admin/member/1" class="icon-link"><i class="bi-arrow-right"></i></a>
 </td>
 </tr>
 </tbody>
