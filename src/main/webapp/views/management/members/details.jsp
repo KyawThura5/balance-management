@@ -10,7 +10,7 @@
 
 <div class="list-group mt-3">
 <div class="list-group-item">
-<i class="bi-person"></i>Sar Lone May
+<i class="bi-person"></i>Kyaw Thuya
 </div>
 <div class="list-group-item">
 <i class="bi-telephone"></i>09259042093
