@@ -23,6 +23,10 @@
 <ul class="navbar-nav">
 
 <li class="nav-item">
+<a href="${root}/admin/access  " class="nav-link ${title eq 'ACCESS' ? 'active' : '' }"><i class="bi-calendar"></i>AccessHistory</a>
+</li>
+
+<li class="nav-item">
 <a href="${root}/admin/member" class="nav-link ${title eq 'MEMBERS' ? 'active' : '' }"><i class="bi-people"></i>Members</a>
 </li>
 
