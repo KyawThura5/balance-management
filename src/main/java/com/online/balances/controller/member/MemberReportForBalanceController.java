@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberReportForBalanceController {
 	@GetMapping
 	String index() {
-		return "";
+		return "member/balance/list";
 	}
 }

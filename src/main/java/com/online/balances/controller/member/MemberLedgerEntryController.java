@@ -1,15 +1,22 @@
 package com.online.balances.controller.member;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.online.balances.model.entity.consts.BalanceType;
+
 @Controller
-@RequestMapping("member/ledger/entry")
+@RequestMapping("member/entry")
 public class MemberLedgerEntryController {
-	@GetMapping
-	String index() {
-		return "";
+   @GetMapping("{type}")
+	String index(@PathVariable String type,
+			ModelMap modelMap) {
+	   modelMap.put("type", BalanceType.from(type));
+	   
+		return "member/entries/list";
 	}
 
 }

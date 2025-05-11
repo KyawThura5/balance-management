@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="app" tagdir="/WEB-INF/tags" %>
-<app:layout-anonymous title="Sign In">
+<app:layout-anonymous title="Sign Up">
 <main class="loginForm">
 <h3>Sign Up</h3>
 <form action="${root}/signup" method="post" class="mt-4">
