@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("member/ledger")
 public class MemberLedgerController {
 	
-	@GetMapping("{type}")
-	String index(@PathVariable String type) {
-		return "member/entries/list";
+	@GetMapping
+	String index() {
+		return "member/ledgers/list";
 	}
 
 }

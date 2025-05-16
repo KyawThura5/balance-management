@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="app" tagdir="/WEB-INF/tags" %>
 
-<app:layout-management title="BALANCES">
+<app:layout-member title="BALANCES">
 <app:page-title title="Balances Report"></app:page-title>
-</app:layout-management>
+</app:layout-member>
