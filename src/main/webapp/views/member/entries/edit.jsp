@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="app" tagdir="/WEB-INF/tags" %>
 
-<app:layout-management title="ACCESS">
-<app:page-title title="Access History"></app:page-title>
-</app:layout-management>
+<app:layout-member title="Member">
+
+<app:page-title title="Edit Incomes"></app:page-title>
+ 
+</app:layout-member>

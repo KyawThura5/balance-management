@@ -18,5 +18,17 @@ public class MemberLedgerEntryController {
 	   
 		return "member/entries/list";
 	}
-
+   
+   @GetMapping("add-new/{type}")
+   String addNew(@PathVariable String type, ModelMap modelMap) {
+	   
+    modelMap.put("type", BalanceType.from(type));
+	return "member/entries/edit";	   
+   }
+   
+   @GetMapping("edit/{id}")
+   String edit(@PathVariable String id) {
+	   return "member/entries/edit";
+	   
+   }
 }

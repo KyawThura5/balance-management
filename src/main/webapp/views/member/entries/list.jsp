@@ -24,6 +24,7 @@
 <div class="col btn-wrapper">
 <button class="btn btn-primary">
 <i class="bi-search"></i>Search</button>
+<a href="${root}/member/entry/add-new/${type.name().toLowerCase()}" class="btn btn-danger"><i class="bi-plus"></i>New Entry</a>
 </div>
 </form>
 
@@ -46,7 +47,7 @@
 <td>Maintenance of POS</td>
 <td class="text-end">1000000</td>
 <td class="text-center">
-<a href="${root}/member/balance/">
+<a href="${root}/member/balance/2025-02-01">
 <i class="bi bi-arrow-right"></i>
 </a>
 </td>
