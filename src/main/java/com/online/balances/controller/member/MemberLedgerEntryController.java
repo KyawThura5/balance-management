@@ -4,9 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.online.balances.model.entity.consts.BalanceType;
+
+import jakarta.annotation.PostConstruct;
 
 @Controller
 @RequestMapping("member/entry")
@@ -30,5 +33,20 @@ public class MemberLedgerEntryController {
    String edit(@PathVariable String id) {
 	   return "member/entries/edit";
 	   
+   }
+   
+   @PostMapping("save")
+   String save() {
+	   return "redirect:/member/balance/2025-02-01";
+   }
+   
+   @PostMapping("save/add-item")
+   String addNew() {
+	   return "member/entries/edit";
+   }
+   
+   @PostMapping("save/remove-item")
+   String removeItem() {
+	   return "member/entries/edit";
    }
 }

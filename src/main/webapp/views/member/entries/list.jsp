@@ -55,6 +55,5 @@
 </tbody>
 
 </table>
-
 <app:pagination/>
 </app:layout-member>
