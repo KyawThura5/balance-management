@@ -4,12 +4,109 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 	am5.ready(() => {
-		loadBalanceChart()
+		loadBalanceChart(BalanceData)
+		loadPieChart(ExpensesData, 'expensesChart')
+		loadPieChart(IncomesData, 'incomesChart')
 	})
 
 })
 
-function loadBalanceChart() {
+const BalanceData = [
+		{
+			"date": "2025/05/01",
+			"expenses": 200000,
+			"incomes": 500000
+		}, {
+			"date": "2025/05/02",
+			"expenses": 10000,
+			"incomes": 500000
+		}, {
+			"date": "2025/05/03",
+			"expenses": 40000,
+			"incomes": 300000
+		},
+		{
+			"date": "2025/05/04",
+			"expenses": 250000,
+			"incomes": 700000
+		},
+		{
+			"date": "2025/05/05",
+			"expenses": 4500,
+			"incomes": 60000
+		}
+	]
+
+const IncomesData = [{
+	  ledger: "Phone Service",
+	  value: 501.9
+	}, {
+	  ledger: "laptop Sevice",
+	  value: 301.9
+	}, {
+	  ledger: "PowerBank Service",
+	  value: 201.1
+	}]
+	
+const ExpensesData = [{
+		  ledger: "Phone Service",
+		  value: 501.9
+		}, {
+		  ledger: "laptop Sevice",
+		  value: 301.9
+		}, {
+		  ledger: "PowerBank Service",
+		  value: 201.1
+		}]
+		
+		
+function loadPieChart(data, chartdiv){
+
+	// Create root element
+	// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+	var root = am5.Root.new(chartdiv);
+
+	// Set themes
+	// https://www.amcharts.com/docs/v5/concepts/themes/
+	root.setThemes([
+	  am5themes_Animated.new(root)
+	]);
+
+	// Create chart
+	// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+	var chart = root.container.children.push(
+	  am5percent.PieChart.new(root, {
+	    endAngle: 270
+	  })
+	);
+
+	// Create series
+	// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+	var series = chart.series.push(
+	  am5percent.PieSeries.new(root, {
+	    valueField: "value",
+	    categoryField: "ledger",
+	    endAngle: 270
+	  })
+	);
+
+	series.states.create("hidden", {
+	  endAngle: -90
+	});
+	series.labels.template.setAll({
+		visible: false
+	});
+	
+	series.ticks.template.setAll({
+		visible: false
+	});
+	series.data.setAll(data);  
+	series.appear(1000, 100);
+}
+
+
+
+function loadBalanceChart(data) {
 
 
 	// Create root element
@@ -44,32 +141,6 @@ function loadBalanceChart() {
 			x: am5.p50
 		})
 	);
-
-	var data = [
-		{
-			"date": "2025/05/01",
-			"incomes": 500000,
-			"expenses": 20000
-		}, {
-			"date": "2025/05/02",
-			"incomes": 400000,
-			"expenses": 60000
-		}, {
-			"date": "2025/05/03",
-			"incomes": 500000,
-			"expenses": 30000
-		},
-		{
-			"date": "2025/05/04",
-			"incomes": 600000,
-			"expenses": 20000
-		},
-		{
-			"date": "2025/05/05",
-			"incomes": 200000,
-			"expenses": 50000
-		}
-	]
 
 
 	// Create axes

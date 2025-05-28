@@ -88,12 +88,44 @@
 				</div>
 			</div>
 
+			<div class="row mt-4">
+				<div class="col">
+
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">
+								<i class="bi-cart me-2"></i>Expenses
+							</h5>
+							
+							<div id="expensesChart" class="piChartGroup"></div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col">
+
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">
+								<i class="bi-flag me-2"></i>Incomes
+							</h5>
+							
+							<div id="incomesChart" class="piChartGroup"></div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
 
 		</div>
 	</div>
 
 	<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 	<script src="${root }/resources/js/member-home.js"></script>
 </app:layout-member>
