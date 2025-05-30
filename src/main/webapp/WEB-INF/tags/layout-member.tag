@@ -57,7 +57,7 @@
 			</ul>
 		</div>
 	</nav>
-	<main class="container mt-4">
+	<main class="container my-4">
 		<jsp:doBody></jsp:doBody>
 	</main>
 </body>

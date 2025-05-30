@@ -8,8 +8,8 @@
 		<div class="btn-group">
 			<input type="radio" name="display" class="btn-check" id="monthly"
 				checked /> <label for="monthly" class="btn btn-outline-primary">Monthly</label>
-			<input type="radio" name="display" class="btn-check" id="yearly" /> <label
-				for="yearly" class="btn btn-outline-primary">Yearly</label>
+			<input type="radio" name="display" class="btn-check" id="yearly" />
+			<label for="yearly" class="btn btn-outline-primary">Yearly</label>
 		</div>
 	</div>
 
@@ -22,9 +22,9 @@
 
 					<div class="d-flex justify-content-between">
 						<h5 class="card-title">
-							<i class="bi-person"></i>Profile
+							<i class="bi-person me-2"></i>Profile
 						</h5>
-						<a href="#" class="btn-link"> <i class="bi-pencil"></i>
+						<a href="${root}/member/profile" class="btn-link"> <i class="bi-pencil"></i>
 						</a>
 					</div>
 				</div>
@@ -33,7 +33,7 @@
 					class="profile-image">
 
 
-				<div class="card-body">
+				<div class="card-body mt-1">
 					<div class="list-group list-group-flush">
 
 						<div class="list-group-item">
@@ -48,9 +48,40 @@
 							<i class="bi-envelope me-2"></i>kyaw@gmail.com
 						</div>
 
+						<div class="list-group-item">
+							<i class="bi-map me-2"></i>Northern Shan Sate , Lashio
+						</div>
+
 					</div>
 				</div>
 
+			</div>
+
+			<div class="card mt-4">
+				<div class="card-body">
+
+					<div class="d-flex justify-content-between align-items-start">
+
+						<h5 class="card-title">
+							<i class="bi-shield me-2"></i>Access
+						</h5>
+
+						<a href="${root}/member/access"><i class="bi-send"></i></a>
+
+					</div>
+
+					<div class="list-group list-group-flush">
+						<div class="list-group-item">
+							<div class="fw-bold">Register At</div>
+							<span>2025-05-01</span>
+						</div>
+						<div class="list-group-item">
+							<div class="fw-bold">Last Access</div>
+							<span>2025-05-04</span>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
 
@@ -96,7 +127,7 @@
 							<h5 class="card-title">
 								<i class="bi-cart me-2"></i>Expenses
 							</h5>
-							
+
 							<div id="expensesChart" class="piChartGroup"></div>
 						</div>
 					</div>
@@ -110,7 +141,7 @@
 							<h5 class="card-title">
 								<i class="bi-flag me-2"></i>Incomes
 							</h5>
-							
+
 							<div id="incomesChart" class="piChartGroup"></div>
 						</div>
 					</div>
