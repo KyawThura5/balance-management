@@ -24,7 +24,7 @@
 </head>
 <body>
 	<!-- nav bar -->
-	<nav class="navbar navbar-expand navbar-dark bg-dark">
+	<nav class="navbar navbar-expand sticky-top navbar-dark bg-dark">
 		<div class="container">
 			<a href="${root}/admin/home" class="navbar-brand"> <i
 				class="bi-house"></i>Balance Admin

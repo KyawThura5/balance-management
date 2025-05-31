@@ -8,7 +8,7 @@
 <form class="row mb-3">
 
 <app:form-group label="Status" cssClass="col-auto">
-<select class="form-select">
+<select name="status" class="form-select">
 <option value="">Select All</option>
 <option value="Success">Success</option>
 <option value="Fails">Fails</option>
@@ -16,15 +16,15 @@
 </app:form-group>
 
 <app:form-group label="Date From" cssClass="col-auto">
-<input type="date" class="form-control"/>
+<input name="dateFrom" type="date" class="form-control"/>
 </app:form-group>
 
 <app:form-group label="Date To" cssClass="col-auto">
-<input type="date" class="form-control"/>
+<input name="dateTo" type="date" class="form-control"/>
 </app:form-group>
 
 <app:form-group label="keyword" cssClass="col-auto">
-<input type="text" class="form-control" placeHolder="Search Keyword"/>
+<input name="keyword" type="text" class="form-control" placeHolder="Search Keyword"/>
 </app:form-group>
 
 <div class="col btn-wrapper">
