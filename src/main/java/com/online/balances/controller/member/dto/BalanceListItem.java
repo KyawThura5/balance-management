@@ -3,7 +3,7 @@ package com.online.balances.controller.member.dto;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public record BalanceItem(String code, LocalDateTime issueAt, String ledgerName, String particular, BigDecimal income,
+public record BalanceListItem(String code, LocalDateTime issueAt, String ledgerName, String particular, BigDecimal income,
 		BigDecimal expense, BigDecimal balance) {
 
 }

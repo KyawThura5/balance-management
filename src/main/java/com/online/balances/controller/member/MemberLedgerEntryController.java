@@ -19,7 +19,7 @@ import com.online.balances.model.entity.consts.BalanceType;
 @RequestMapping("member/entry")
 public class MemberLedgerEntryController {
    @GetMapping("{type}")
-	String index(ModelMap modelMap, LedgerEntrySearch search,
+	String index(ModelMap modelMap, @PathVariable BalanceType type, LedgerEntrySearch search,
 			@RequestParam(required = false, defaultValue = "0") int page,
 			@RequestParam(required = false, defaultValue = "10") int size) {
 	   
@@ -27,9 +27,7 @@ public class MemberLedgerEntryController {
 	}
    
    @GetMapping("add-new/{type}")
-   String addNew(@PathVariable String type, ModelMap modelMap) {
-	   
-    modelMap.put("type", BalanceType.from(type));
+	String addNew(@PathVariable BalanceType type, ModelMap modelMap) {
 	return "member/entries/edit";	   
    }
    

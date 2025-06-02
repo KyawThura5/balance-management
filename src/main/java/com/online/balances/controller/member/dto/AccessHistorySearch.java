@@ -1,4 +1,4 @@
-package com.online.balances.controller.management.dto;
+package com.online.balances.controller.member.dto;
 
 import java.time.LocalDateTime;
 

@@ -8,17 +8,17 @@
 
 		<div class="col-auto">
 			<label for="dateInput" class="form-label">Date From</label> <input
-				type="date" class="form-control" />
+				name="dateFrom" type="date" class="form-control" />
 		</div>
 
 		<div class="col-auto">
 			<label class="form-label">Date To</label> <input type="date"
-				class="form-control" />
+				name="dateTo" class="form-control" />
 		</div>
 
 		<div class="col-auto">
 			<label class="form-label">Keyword</label> <input type="text"
-				class="form-control" placeHolder="Search Here" />
+				name="keyword" class="form-control" placeHolder="Search Here" />
 		</div>
 
 		<div class="col btn-wrapper">
