@@ -1,6 +1,8 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ attribute name="title" required="true"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="app" tagdir="/WEB-INF/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +52,7 @@
 						class="bi-tags"></i>Ledgers
 				</a></li>
 
-				<li class="nav-item"><a href="${root}/signin" class="nav-link">
+				<li class="nav-item"><a href="#" id="signOutMenu" class="nav-link">
 						<i class="bi-lock"></i>Sign Out
 				</a></li>
 
@@ -60,5 +62,6 @@
 	<main class="container my-4">
 		<jsp:doBody></jsp:doBody>
 	</main>
+	<app:sign-out/>
 </body>
 </html>
