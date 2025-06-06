@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = false)
-public class MemberAcitvity extends AbstractEntity {
+public class MemberActivity extends AbstractEntity {
 
 	@Id
 	private Long id;

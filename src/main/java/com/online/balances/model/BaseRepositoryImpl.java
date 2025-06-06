@@ -14,9 +14,10 @@ import jakarta.persistence.criteria.CriteriaQuery;
 public class BaseRepositoryImpl<T, ID> extends SimpleJpaRepository<T, ID> implements BaseRepository<T, ID> {
 
 	private EntityManager em;
+
 	public BaseRepositoryImpl(JpaEntityInformation<T, ?> entityInformation, EntityManager entityManager) {
 		super(entityInformation, entityManager);
-		// TODO Auto-generated constructor stub
+		this.em = entityManager;
 	}
 
 	@Override

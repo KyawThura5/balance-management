@@ -30,11 +30,12 @@ public class Member extends AbstractEntity {
 	private String name;
 
 	@Column(nullable = false)
+	private String email;
+
 	private String phone;
 	private LocalDate dob;
 	private Gender gender;
 	private String profileImage;
-	private String email;
 
 	@ManyToOne
 	private Township township;

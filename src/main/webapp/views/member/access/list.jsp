@@ -33,6 +33,7 @@
 
 		<thead>
 			<tr>
+				<th>Name</th>
 				<th>Access At</th>
 				<th>Access Type</th>
 				<th>Status</th>
@@ -40,12 +41,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>2025-02-01</td>
-				<td>Login</td>
-				<td>Fails</td>
-				<td>Remark</td>
-			</tr>
+			<c:forEach items="${result.content()}" var="items">
+
+				<tr>
+					<td>${items.member()}</td>
+					<td>${items.accessAt()}</td>
+					<td>${items.type() }</td>
+					<td>${items.status() }</td>
+					<td>${items.remark() }</td>
+				</tr>
+
+			</c:forEach>
 		</tbody>
 	</table>
 	<app:pagination></app:pagination>
