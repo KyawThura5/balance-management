@@ -7,7 +7,7 @@
 
 		<app:page-title title="Member Management" />
 		<button class="btn btn-danger">
-			<i class="bi-x"></i>De-Activate
+			<i class="bi-x"></i>${result.status() eq 'Active' ? 'Denied' : 'Active' }
 		</button>
 	</div>
 
@@ -26,7 +26,7 @@
 							<h5>
 								<i class="bi-person-plus"></i>Register At
 							</h5>
-							<h4 class="mt-4">2025-01-01 10:00</h4>
+							<h4 class="mt-4">${dtf.formatDateTime(result.registerAt()) }</h4>
 						</div>
 					</div>
 				</div>
@@ -37,7 +37,7 @@
 							<h5>
 								<i class="bi-calendar-check"></i>Last Access
 							</h5>
-							<h4 class="mt-4">2025-01-01 10:00</h4>
+							<h4 class="mt-4">${dtf.formatDateTime(result.LastAccessAt()) }</h4>
 						</div>
 					</div>
 				</div>
@@ -48,7 +48,7 @@
 							<h5>
 								<i class="bi-shield"></i>Status
 							</h5>
-							<h4 class="mt-4">Active</h4>
+							<h4 class="mt-4">${result.status() }</h4>
 						</div>
 					</div>
 				</div>
@@ -64,17 +64,17 @@
 
 							<div class="mb-3">
 								<span class="text-secondary">Name</span>
-								<div>Sar Lone May</div>
+								<div>${result.name() }</div>
 							</div>
 
 							<div class="mb-3">
 								<span class="text-secondary">Date Of Birth</span>
-								<div>1999-05-20</div>
+								<div>${result.dateOfBirth() ne null ? dtf.formatDate(result.dateOfBirth()) : 'Un Defined' }</div>
 							</div>
 
 							<div class="mb-3">
 								<span class="text-secondary">Gender</span>
-								<div>Female</div>
+								<div>${result.gender() ne null ? result.gender() : 'Un Defined' }</div>
 							</div>
 
 						</div>
@@ -91,18 +91,18 @@
 
 							<div class="mb-3">
 								<span class="text-secondary">Phone</span>
-								<div>09259042095</div>
+								<div>${result.phone() ne null and result.phone() ne '' ? result.phone() : 'Un Defined'}</div>
 							</div>
 
 							<div class="mb-3">
 								<span class="text-secondary">Email</span>
-								<div>sar@gmail.com</div>
+								<div>${result.email() ne null and result.email() ne '' ? result.email() : 'Un Defined'}</div>
 							</div>
 
 
 							<div class="mb-3">
 								<span class="text-secondary">Address</span>
-								<div>Japan</div>
+								<div>${result.displayName() ne null and result.displayName() ne '' ? result.displayName() : 'Un Defined'}</div>
 							</div>
 
 
