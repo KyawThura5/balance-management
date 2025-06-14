@@ -27,7 +27,6 @@ public class MemberActivity extends AbstractEntity {
 	private String statusChangeReason;
 	private BigDecimal balance;
 	private LocalDateTime registerAt;
-	private LocalDateTime updatedAt;
 	private LocalDateTime lastAccessAt;
 
 }

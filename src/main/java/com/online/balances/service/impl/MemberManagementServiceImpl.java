@@ -26,17 +26,16 @@ import lombok.RequiredArgsConstructor;
 public class MemberManagementServiceImpl implements MemberManagementService {
 
 	private final MemberRepo memberRepo;
+
 	@Override
 	@Transactional
 	public void updateStatus(long id, MemberStatusForm form) {
 		var member = EntityOperations.safeCalls(memberRepo.findById(id), "member", "id", id);
 
 		member.getAccount().setActive(form.getStatus());
-
 		var activity = member.getActivity();
 		activity.setStatus(form.getStatus() ? MemberStatus.Active : MemberStatus.Denied);
 		activity.setStatusChangeReason(form.getReason());
-
 	}
 
 	@Override

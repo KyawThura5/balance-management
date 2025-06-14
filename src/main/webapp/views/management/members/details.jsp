@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="app" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <app:layout-management title="MEMBERS">
 	<div class="d-flex justify-content-between align-items-start">
 
 		<app:page-title title="Member Management" />
-		<button class="btn btn-danger">
-			<i class="bi-x"></i>${result.status() eq 'Active' ? 'Denied' : 'Active' }
+		<button id="statusChangeButton" class="btn btn-danger">
+			<i class="${result.status() eq 'Active' ? 'bi-x' : 'bi-check' }"></i>${result.status() eq 'Active' ? 'Denied' : 'Activate' }
 		</button>
 	</div>
 
@@ -113,4 +115,39 @@
 		</div>
 		<div></div>
 	</div>
+
+	<div id="statusChangeDialog" class="modal">
+
+		<div class="modal-dialog">
+			<form action="${root }/admin/member/${result.id()}/update"
+				method="post" class="modal-content">
+				<sec:csrfInput />
+				<input type="hidden" name="status"
+					value="${result.status() ne 'Active' }" />
+				<div class="modal-header">
+					<h5 class="modal-title">${result.status() eq 'Active' ? 'Denied' : 'Activate' }
+						Access</h5>
+				</div>
+
+				<div class="modal-body">
+
+					<div>
+						<label class="form-label">Reason</label>
+						<textarea name="reason" class="form-control" required='required'></textarea>
+					</div>
+
+
+				</div>
+
+				<div class="modal-footer">
+					<button class="btn btn-outline-primary">
+						<i class="bi-save"></i>Change Status
+					</button>
+
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<script src="${root }/resources/js/member-details.js"></script>
 </app:layout-management>
