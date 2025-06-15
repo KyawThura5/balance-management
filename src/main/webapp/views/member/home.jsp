@@ -37,19 +37,19 @@
 					<div class="list-group list-group-flush">
 
 						<div class="list-group-item">
-							<i class="bi-person me-2"></i>Kyaw Thuya
+							<i class="bi-person me-2"></i>${profile.name() }
 						</div>
 
 						<div class="list-group-item">
-							<i class="bi-telephone me-2"></i>09426716263
+							<i class="bi-telephone me-2"></i>${profile.phone() ne null ? profile.phone() : 'Un Defined'}
 						</div>
 
 						<div class="list-group-item">
-							<i class="bi-envelope me-2"></i>kyaw@gmail.com
+							<i class="bi-envelope me-2"></i>${profile.email() }
 						</div>
 
 						<div class="list-group-item">
-							<i class="bi-map me-2"></i>Northern Shan Sate , Lashio
+							<i class="bi-map me-2"></i>${profile.address() ne null and profile.address() eq ' ' ? profile.address() : 'Un Defined'}
 						</div>
 
 					</div>
@@ -73,11 +73,11 @@
 					<div class="list-group list-group-flush">
 						<div class="list-group-item">
 							<div class="fw-bold">Register At</div>
-							<span>2025-05-01</span>
+							<span>${dtf.formatDateTime(profile.registerAt()) }</span>
 						</div>
 						<div class="list-group-item">
 							<div class="fw-bold">Last Access</div>
-							<span>2025-05-04</span>
+							<span>${dtf.formatDateTime(profile.lastAccessAt()) }</span>
 						</div>
 					</div>
 

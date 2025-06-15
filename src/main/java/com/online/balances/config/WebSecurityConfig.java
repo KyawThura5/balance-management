@@ -2,6 +2,7 @@ package com.online.balances.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,6 +12,7 @@ import com.online.balances.model.entity.consts.Role;
 import com.online.balances.security.LoginSuccessHandler;
 
 @Configuration
+@EnableMethodSecurity
 public class WebSecurityConfig {
 
 	@Bean
