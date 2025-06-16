@@ -60,8 +60,8 @@
 				<div class="row mb-3">
 					<div class="col">
 						<label class="form-label">Region</label> <select
-							class="form-select" id="region">
-							<option value=" ">Select Region</option>
+							class="form-select" id="region" data-fetch-api="${root }/member/location/district">
+							<option value="">Select Region</option>
 							<c:forEach var="item" items="${regions}">
 								<option value="${item.id}">${item.name }</option>
 							</c:forEach>
@@ -69,15 +69,15 @@
 					</div>
 					<div class="col">
 						<label class="form-label">District</label> <select
-							class="form-select" id="district">
-							<option value="">Select District</option>
+							class="form-select" id="district" data-fetch-api="${root }/member/location/township">
+							<option value="">Select One</option>
 						</select>
 					</div>
 
 					<div class="col">
 						<label class="form-label">TownShip</label> <select
 							class="form-select" id="township">
-							<option value="">Select TownShip</option>
+							<option value="">Select One</option>
 						</select>
 					</div>
 

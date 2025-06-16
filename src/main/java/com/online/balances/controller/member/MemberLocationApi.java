@@ -21,13 +21,13 @@ public class MemberLocationApi {
 	private final LocationService locationService;
 
 	@GetMapping("district")
-	List<District> findDistricts(@RequestParam int regionId) {
+	List<District> findDistricts(@RequestParam("regionId") int regionId) {
 		return locationService.findDistrictByRegion(regionId);
 
 	}
 
 	@GetMapping("township")
-	List<Township> findTownships(@RequestParam int districtId) {
+	List<Township> findTownships(@RequestParam("districtId") int districtId) {
 		return locationService.findTownshipByDistrict(districtId);
 
 	}
