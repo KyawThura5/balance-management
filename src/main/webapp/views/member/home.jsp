@@ -49,7 +49,7 @@
 						</div>
 
 						<div class="list-group-item">
-							<i class="bi-map me-2"></i>${profile.address() ne null and profile.address() eq ' ' ? profile.address() : 'Un Defined'}
+							<i class="bi-map me-2"></i>${not empty profile.address() ? profile.address() : 'Un Defined'}
 						</div>
 
 					</div>

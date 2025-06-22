@@ -16,51 +16,63 @@
 				<input id="profilePhotoInput" type="file" class="d-none" name="file" />
 				<button type="button" id="profilePhotoButton"
 					class="btn btn-primary w-100">
-					<i class="bi-camera me-1"></i>Upload Profile Picture
+					<i class="bi-camera me-1"></i>Change Profile Picture
 				</button>
 			</form>
 
 		</div>
 
 		<div class="col">
-			<sf:form>
+			<sf:form method="post" modelAttribute="form">
 				<div class="row">
 					<div class="col-8 mb-3">
-						<label class="form-label">Name</label> <input type="text"
-							class="form-control" placeHolder="Enter Name" />
+						<label class="form-label">Name</label>
+						<sf:input path="name" type="text" class="form-control"
+							placeHolder="Enter Name" />
+						<sf:errors path="name" class="text-secondary"></sf:errors>
 					</div>
 				</div>
 				<div class="row mb-3">
 					<div class="col-4">
-						<label class="form-label">Gender</label> <select
-							class="form-select">
+						<label class="form-label">Gender</label>
+						<sf:select path="gender" class="form-select">
+						<option value="">Select One</option>
 							<option value="Male">Male</option>
 							<option value="Female">Female
-						</select>
+						</sf:select>
+						<sf:errors path="gender" class="text-secondary"></sf:errors>
 					</div>
 
 					<div class="col-4">
-						<label class="form-label">Date of Birth</label> <input type="date"
-							class="form-control" />
+						<label class="form-label">Date of Birth</label>
+						<sf:input path="dob" type="date" class="form-control" />
+						<sf:errors path="dob" class="text-secondary"></sf:errors>
 					</div>
 
 				</div>
 
 				<div class="row mb-3">
+
 					<div class="col">
-						<label class="form-label">Phone</label> <input type="text"
-							class="form-control" placeHolder="Enter Phone Number" />
+						<label class="form-label">Phone</label>
+						<sf:input path="phone" type="text" class="form-control"
+							placeHolder="Enter Phone Number" />
+						<sf:errors path="phone" class="text-secondary"></sf:errors>
 					</div>
+
 					<div class="col">
-						<label class="form-label">Email</label> <input type="email"
+						<label class="form-label">Email</label>
+						<sf:input path="email" readonly="true" type="email"
 							class="form-control" placeHolder="Enter Email Address" />
+						<sf:errors path="email" class="text-secondary"></sf:errors>
 					</div>
 				</div>
 
 				<div class="row mb-3">
 					<div class="col">
 						<label class="form-label">Region</label> <select
-							class="form-select" id="region" data-fetch-api="${root }/member/location/district">
+							class="form-select" id="region"
+							data-fetch-api="${root }/member/location/district">
 							<option value="">Select Region</option>
 							<c:forEach var="item" items="${regions}">
 								<option value="${item.id}">${item.name }</option>
@@ -69,23 +81,27 @@
 					</div>
 					<div class="col">
 						<label class="form-label">District</label> <select
-							class="form-select" id="district" data-fetch-api="${root }/member/location/township">
+							class="form-select" id="district"
+							data-fetch-api="${root }/member/location/township">
 							<option value="">Select One</option>
 						</select>
 					</div>
 
 					<div class="col">
-						<label class="form-label">TownShip</label> <select
-							class="form-select" id="township">
+						<label class="form-label">TownShip</label>
+						<sf:select class="form-select" path="township">
 							<option value="">Select One</option>
-						</select>
+						</sf:select>
+						<sf:errors path="township" class="text-secondary"></sf:errors>
 					</div>
 
 				</div>
 				<div class="row">
 					<div class="col mb-3">
 						<label class="form-label">Address</label>
-						<textarea class="form-control" cols="60" rows="3"></textarea>
+						<sf:textarea path="address" class="form-control" cols="60"
+							rows="3"></sf:textarea>
+						<sf:errors path="address" class="text-secondary"></sf:errors>
 					</div>
 				</div>
 

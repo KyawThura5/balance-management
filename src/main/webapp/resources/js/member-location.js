@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					if (result) {
 						Array.from(result).map(item => {
 							const option = document.createElement('option')
-							option.id = item.id
+							option.value = item.id
 							option.innerText = item.name
 							return option;
 
