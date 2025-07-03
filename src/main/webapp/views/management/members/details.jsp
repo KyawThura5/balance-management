@@ -15,8 +15,8 @@
 
 	<div class="row mt-3">
 		<div class="col-3">
-			<img class="img-fulid profile-image"
-				src="${root}/resources/photo/profile.jpeg" alt="Profile Image" />
+			<img src="${root }/resources/photo/${result.profileImage()}" alt="Profile Image"
+				class="profile-image img-fluid img-thumbnail">
 		</div>
 
 		<div class="col">

@@ -3,16 +3,19 @@
 <%@ taglib prefix="app" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <app:layout-member title="Profile">
 	<app:page-title title="Member Profile"></app:page-title>
 	<div class="row">
 		<div class="col-3">
-			<img src="${root }/resources/photo/profile.jpeg" alt="Profile Image"
+			<img src="${root }/resources/photo/${form.profileImage}" alt="Profile Image"
 				class="profile-image img-fluid img-thumbnail">
-
+				
 			<form id="profilePhotoForm" class="mt-2"
 				action="${root}/member/profile/photo" method="post"
 				enctype="multipart/form-data">
+				<sec:csrfInput/>
 				<input id="profilePhotoInput" type="file" class="d-none" name="file" />
 				<button type="button" id="profilePhotoButton"
 					class="btn btn-primary w-100">

@@ -45,7 +45,8 @@ public class ProfileEditForm {
 		return new Builder().name(entity.getName()).gender(entity.getGender()).dob(entity.getDob())
 				.phone(entity.getPhone()).email(entity.getEmail())
 				.township(Optional.ofNullable(entity.getTownship()).map(Township::getId).orElse(null))
-				.address(entity.getAddress()).profileImage(entity.getProfileImage()).build();
+				.address(entity.getAddress())
+				.profileImage(Optional.ofNullable(entity.getProfileImage()).orElse("default-profile.png")).build();
 	}
 
 	// Classic-style Builder pattern

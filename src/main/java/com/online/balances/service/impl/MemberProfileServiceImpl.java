@@ -1,8 +1,14 @@
 package com.online.balances.service.impl;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.online.balances.controller.member.dto.MemberProfileDetails;
 import com.online.balances.controller.member.dto.ProfileEditForm;
@@ -55,6 +61,39 @@ public class MemberProfileServiceImpl implements MemberProfileService {
 		townshipRepo.findById(form.getTownship()).ifPresent(member::setTownship);
 
 		member.setAddress(form.getAddress());
+	}
+
+	@Override
+	@Transactional
+	@PreAuthorize("#username eq authentication.name")
+	public void saveImage(String username, String imageFolder, MultipartFile file) {
+
+		try {
+			var profileImageName = getProfileImageName(username, file);
+
+			var member = EntityOperations.safeCalls(memberRepo.findOneByAccountUsername(username), "Member", "Login Id",
+					username);
+
+			var profileImagePath = Path.of(imageFolder, profileImageName);
+
+			Files.copy(file.getInputStream(), profileImagePath, StandardCopyOption.REPLACE_EXISTING);
+
+			member.setProfileImage(profileImageName);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private String getProfileImageName(String username, MultipartFile file) {
+
+		var fileName = file.getOriginalFilename();
+
+		var array = fileName.split("\\.");
+
+		var extension = array[array.length - 1];
+
+		return "%s.%s".formatted(fileName, extension);
 	}
 
 }

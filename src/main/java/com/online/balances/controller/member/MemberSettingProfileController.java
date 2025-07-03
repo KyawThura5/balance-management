@@ -18,6 +18,7 @@ import com.online.balances.model.entity.Region;
 import com.online.balances.service.LocationService;
 import com.online.balances.service.MemberProfileService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -44,8 +45,16 @@ public class MemberSettingProfileController {
 	}
 
 	@PostMapping("photo")
-	String uploadPhoto(@RequestParam MultipartFile file) {
-		System.out.println(file.getOriginalFilename());
+	String uploadPhoto(@RequestParam MultipartFile file, HttpServletRequest httpServletRequest) {
+
+		System.out.println("############" + file.getOriginalFilename());
+
+		var username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		var imageFolder = httpServletRequest.getServletContext().getRealPath("/resources/photo/");
+
+		memberProfileService.saveImage(username, imageFolder, file);
+
 		return "redirect:/member/profile";
 	}
 

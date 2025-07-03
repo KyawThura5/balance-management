@@ -2,6 +2,7 @@ package com.online.balances.controller.management.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,7 +14,7 @@ import com.online.balances.model.entity.consts.MemberStatus;
 
 public record MemberDetails(long id, String name, LocalDate dateOfBirth, Gender gender, String phone, String email,
 		String address, String township, String region, MemberStatus status, LocalDateTime registerAt,
-		LocalDateTime LastAccessAt) {
+		LocalDateTime LastAccessAt, String profileImage) {
 
 	public static MemberDetails from(Member member) {
 
@@ -25,6 +26,7 @@ public record MemberDetails(long id, String name, LocalDate dateOfBirth, Gender 
 	        .gender(member.getGender())
 	        .phone(member.getPhone())
 	        .email(member.getEmail())
+				.profileImage(Optional.ofNullable(member.getProfileImage()).orElse("default-profile.png"))
 	        .address(member.getAddress())
 				.status(member.getActivity().getStatus()).registerAt(member.getActivity().getRegisterAt())
 				.lastAccessAt(member.getActivity().getLastAccessAt());
@@ -59,6 +61,7 @@ public record MemberDetails(long id, String name, LocalDate dateOfBirth, Gender 
 		private MemberStatus status;
 		private LocalDateTime registerAt;
 		private LocalDateTime LastAccessAt;
+		private String profileImage;
 
 		public Builder id(long id) {
 			this.id = id;
@@ -120,9 +123,15 @@ public record MemberDetails(long id, String name, LocalDate dateOfBirth, Gender 
 			return this;
 		}
 
+		public Builder profileImage(String profileImage) {
+			this.profileImage = profileImage;
+			return this;
+		}
+
+
 		public MemberDetails build() {
 			return new MemberDetails(id, name, dateOfBirth, gender, phone, email, address, township, region, status,
-					registerAt, LastAccessAt);
+					registerAt, LastAccessAt, profileImage);
 		}
 	}
 }
