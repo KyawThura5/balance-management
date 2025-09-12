@@ -15,7 +15,9 @@ public record MemberProfileDetails(Long id, String name, String phone, String pr
 	public static MemberProfileDetails from(Member entity) {
 
 		var builder = new Builder();
-		builder.id(entity.getId()).name(entity.getName()).phone(entity.getPhone()).email(entity.getEmail())
+		builder.id(entity.getId()).name(entity.getName())
+				.profileImage(Optional.ofNullable(entity).map(a -> a.getProfileImage()).orElse("default-profile.png"))
+				.phone(entity.getPhone()).email(entity.getEmail())
 				.registerAt(entity.getActivity().getRegisterAt()).lastAccessAt(entity.getActivity().getLastAccessAt());
 
 		var list = List.of(Optional.ofNullable(entity.getAddress()).orElse(""),

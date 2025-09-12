@@ -29,7 +29,7 @@
 					</div>
 				</div>
 
-				<img alt="Profile Image" src="${root }/resources/photo/profile.jpeg"
+				<img alt="Profile Image" src="${root }/resources/photo/${profile.profileImage()}"
 					class="profile-image">
 
 

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.online.balances.controller.member.dto.ProfileEditForm;
+import com.online.balances.model.entity.District;
 import com.online.balances.model.entity.Region;
+import com.online.balances.model.entity.Township;
 import com.online.balances.service.LocationService;
 import com.online.balances.service.MemberProfileService;
 
@@ -61,6 +63,16 @@ public class MemberSettingProfileController {
 	@ModelAttribute(name = "regions")
 	List<Region> getRegions() {
 		return locationService.getAllLocations();
+	}
+
+	@ModelAttribute(name = "districts")
+	List<District> getDistricts(@ModelAttribute(name = "form") ProfileEditForm editForm) {
+		return locationService.getDistrictsForSelectedTownship(editForm.getTownship());
+	}
+	
+	@ModelAttribute(name = "townships")
+	List<Township> getTownships(@ModelAttribute(name = "form") ProfileEditForm editForm) {
+		return locationService.getTownshipForSelectedTownship(editForm.getTownship());
 	}
 
 	@ModelAttribute(name = "form")

@@ -12,6 +12,7 @@ import com.online.balances.model.repo.DistrictRepo;
 import com.online.balances.model.repo.RegionRepo;
 import com.online.balances.model.repo.TownshipRepo;
 import com.online.balances.service.LocationService;
+import com.online.balances.utils.EntityOperations;
 
 import lombok.RequiredArgsConstructor;
 
@@ -39,6 +40,26 @@ public class LocationServiceImpl implements LocationService {
 	@Override
 	public List<Township> findTownshipByDistrict(int districtId) {
 		return townshipRepo.findByDistrictId(districtId);
+	}
+
+	@Override
+	public List<District> getDistrictsForSelectedTownship(Integer townshipId) {
+		if (null != townshipId) {
+			var township = EntityOperations.safeCalls(townshipRepo.findById(townshipId), "township", "id", townshipId);
+			var regionId = township.getDistrict().getRegion().getId();
+			return districtRepo.findByRegionId(regionId);
+		}
+		return null;
+	}
+
+	@Override
+	public List<Township> getTownshipForSelectedTownship(Integer townshipId) {
+		if (null != townshipId) {
+			var township = EntityOperations.safeCalls(townshipRepo.findById(townshipId), "township", "id", townshipId);
+			var districtId = township.getDistrict().getId();
+			return townshipRepo.findByDistrictId(districtId);
+		}
+		return null;
 	}
 
 }

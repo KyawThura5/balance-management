@@ -3,7 +3,9 @@ package com.online.balances.controller.member.dto;
 import java.time.LocalDate;
 import java.util.Optional;
 
+import com.online.balances.model.entity.District;
 import com.online.balances.model.entity.Member;
+import com.online.balances.model.entity.Region;
 import com.online.balances.model.entity.Township;
 import com.online.balances.model.entity.consts.Gender;
 
@@ -33,6 +35,10 @@ public class ProfileEditForm {
 	@NotBlank(message = "Please enter email. ")
 	private String email;
 
+	private Integer region;
+
+	private Integer district;
+
 	@NotNull(message = "Please select township.")
 	private Integer township;
 
@@ -44,6 +50,10 @@ public class ProfileEditForm {
 	public static ProfileEditForm from(Member entity) {
 		return new Builder().name(entity.getName()).gender(entity.getGender()).dob(entity.getDob())
 				.phone(entity.getPhone()).email(entity.getEmail())
+				.region(Optional.ofNullable(entity.getTownship()).map(Township::getDistrict).map(District::getRegion)
+						.map(Region::getId).orElse(null))
+				.district(Optional.ofNullable(entity.getTownship()).map(Township::getDistrict).map(District::getId)
+						.orElse(null))
 				.township(Optional.ofNullable(entity.getTownship()).map(Township::getId).orElse(null))
 				.address(entity.getAddress())
 				.profileImage(Optional.ofNullable(entity.getProfileImage()).orElse("default-profile.png")).build();
@@ -56,6 +66,8 @@ public class ProfileEditForm {
 		private LocalDate dob;
 		private String phone;
 		private String email;
+		private Integer region;
+		private Integer district;
 		private Integer township;
 		private String address;
 		private String profileImage;
@@ -85,6 +97,16 @@ public class ProfileEditForm {
 			return this;
 		}
 
+		public Builder region(Integer region) {
+			this.region = region;
+			return this;
+		}
+
+		public Builder district(Integer district) {
+			this.district = district;
+			return this;
+		}
+
 		public Builder township(Integer township) {
 			this.township = township;
 			return this;
@@ -101,7 +123,8 @@ public class ProfileEditForm {
 		}
 
 		public ProfileEditForm build() {
-			return new ProfileEditForm(name, gender, dob, phone, email, township, address, profileImage);
+			return new ProfileEditForm(name, gender, dob, phone, email, region, district, township, address,
+					profileImage);
 		}
 		}
 	}

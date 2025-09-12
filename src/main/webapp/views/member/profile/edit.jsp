@@ -40,8 +40,8 @@
 						<label class="form-label">Gender</label>
 						<sf:select path="gender" class="form-select">
 						<option value="">Select One</option>
-							<option value="Male">Male</option>
-							<option value="Female">Female
+							<option value="Male"${form.gender eq 'Male' ? 'selected' : ''}>Male</option>
+							<option value="Female" ${form.gender eq 'Female' ? 'selected' : '' }>Female
 						</sf:select>
 						<sf:errors path="gender" class="text-secondary"></sf:errors>
 					</div>
@@ -78,7 +78,7 @@
 							data-fetch-api="${root }/member/location/district">
 							<option value="">Select Region</option>
 							<c:forEach var="item" items="${regions}">
-								<option value="${item.id}">${item.name }</option>
+								<option value="${item.id}" ${item.id eq form.region ? 'selected' : '' }>${item.name }</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -87,6 +87,9 @@
 							class="form-select" id="district"
 							data-fetch-api="${root }/member/location/township">
 							<option value="">Select One</option>
+							<c:forEach var="item" items="${districts}">
+								<option value="${item.id}" ${item.id eq form.district ? 'selected' : '' }>${item.name }</option>
+							</c:forEach>
 						</select>
 					</div>
 
@@ -94,6 +97,9 @@
 						<label class="form-label">TownShip</label>
 						<sf:select class="form-select" path="township">
 							<option value="">Select One</option>
+							<c:forEach var="item" items="${townships}">
+								<option value="${item.id}" ${item.id eq form.township ? 'selected' : '' }>${item.name }</option>
+							</c:forEach>
 						</sf:select>
 						<sf:errors path="township" class="text-secondary"></sf:errors>
 					</div>

@@ -14,4 +14,8 @@ public interface LocationService {
 
 	List<Township> findTownshipByDistrict(int districtId);
 
+	List<District> getDistrictsForSelectedTownship(Integer township);
+
+	List<Township> getTownshipForSelectedTownship(Integer township);
+
 }
